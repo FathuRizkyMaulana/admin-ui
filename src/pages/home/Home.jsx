@@ -1,9 +1,30 @@
 import "./home.scss";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
+import Widget from "../../components/widget/Widget";
+import Chart from "../../components/chart/Chart";
 
 const Home = () => {
-  return 
-    <div>Home</div>;
-  
+  return (
+    <div className="home">
+      <Sidebar />
+      <div className="homeContainer">
+        <Navbar/>
+        <div className="widget">
+          <Widget type="user"/>
+          <Widget type="order"/>
+          <Widget type="earning"/>
+          <Widget type="balance"/>
+
+          <div className="chart">
+          <Chart type="order" aspect={ 2 / 1 } />
+          <Chart type="earning"aspect={ 2 / 1 } /> 
+          </div>
+        
+        </div>
+        </div>
+    </div>
+  );
 };
 
 export default Home;
