@@ -1,116 +1,23 @@
 import "./mylist.scss";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
+import Widget from "../../components/widget/Widget";
+import MyDatatable from "../../components/mydatatable/MyDatatable";
 
-const MyList = ({ type }) => {
-    return (
-        <div className="home">
-          <Sidebar />
-          <div className="homeContainer">
-            <Navbar/>
-            <div className="widgets">
-              <Widget type="user"/>
-              <Widget type="order"/>
-              <Widget type="earning"/>   
-              <Widget type="balance"/>
-            </div>
-            <div className="charts"> 
-              <Chart type="order" aspect={2 / 1 } />
-              <Chart type="earning" aspect={2 / 1 } /> 
-              </div>
-          </div>
-        </div>
-      );
-  let data;
 
-  //temporary
-  const amount = 100;
-  const diff = 20;
-
-  switch (type) {
-    case "user":
-      data = {
-        title: "USERS",
-        isMoney: false,
-        link: "See all users",
-        icon: (
-          <PersonOutlinedIcon
-            className="icon"
-            style={{
-              color: "crimson",
-              backgroundColor: "rgba(255, 0, 0, 0.2)",
-            }}
-          />
-        ),
-      };
-      break;
-    case "order":
-      data = {
-        title: "ORDERS",
-        isMoney: false,
-        link: "View all orders",
-        icon: (
-          <ShoppingCartOutlinedIcon
-            className="icon"
-            style={{
-              backgroundColor: "rgba(218, 165, 32, 0.2)",
-              color: "goldenrod",
-            }}
-          />
-        ),
-      };
-      break;
-    case "earning":
-      data = {
-        title: "EARNINGS",
-        isMoney: true,
-        link: "View net earnings",
-        icon: (
-          <MonetizationOnOutlinedIcon
-            className="icon"
-            style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
-          />
-        ),
-      };
-      break;
-    case "balance":
-      data = {
-        title: "BALANCE",
-        isMoney: true,
-        link: "See details",
-        icon: (
-          <AccountBalanceWalletOutlinedIcon
-            className="icon"
-            style={{
-              backgroundColor: "rgba(128, 0, 128, 0.2)",
-              color: "purple",
-            }}
-          />
-        ),
-      };
-      break;
-    default:
-      break;
-  }
-
+const MyList = () => {
   return (
-    <div className="widget">
-      <div className="left">
-        <div className="title">{data.title}</div>
-        <div className="counter">
-          {data.isMoney && "$"} {amount}
+    <div className="mylist">
+      <Sidebar />
+      <div className="mylistContainer">
+        <Navbar />
+        <div className="widgets">
+          <Widget type="user" />
+          <Widget type="order"/>
+          <Widget type="earning"/>
         </div>
-        <div className="link">{data.link}</div>
-      </div>
-      <div className="right">
-        <div className="percentage positive">
-          <KeyboardArrowUpIcon />
-          {diff} %
-        </div>
-        {data.icon}
+        <MyDatatable />
+        
       </div>
     </div>
   );
