@@ -6,6 +6,7 @@ import AddCardIcon from '@mui/icons-material/AddCard';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LogoutIcon from '@mui/icons-material/Logout';
+import CategoryIcon from '@mui/icons-material/Category';
 
 const Sidebar = () => {
   return (
@@ -40,6 +41,12 @@ const Sidebar = () => {
         <AddBusinessIcon className="icon"/>
         <span>Orders</span>
       </li>
+      <Link to="/categories">
+        <li>
+          <CategoryIcon className="icon"/>  
+          <span>Categories</span>
+        </li>
+      </Link>
       <p className="title">USER</p>
       <li>
         <AccountBoxIcon className="icon"/>
