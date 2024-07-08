@@ -14,9 +14,19 @@ describe('template spec', () => {
       .should('have.attr', 'placeholder', 'Enter your password')
       .type('123456').should('have.value', '123456')
       
-      cy.get('[data-testid="submit"]').click()
+    cy.get('[data-testid="submit"]').click()
 
-cy.get('div.home')
+    cy.get('div.home')
       .should('be.visible')
+
+      cy.get('div.sidebar')
+        .should('be.visible') 
+
+      cy.get('[data-testid="users"]').click()
+
+       cy.url().should('include', '/users')
+
+       cy.get('div.datatableTitle').contains('USERS')
+
   })
 })
